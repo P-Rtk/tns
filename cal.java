@@ -1,25 +1,24 @@
-import java.util.Scanner;
+import java.util.Scanner; // Import the Scanner class to read user input
 
 public class cal {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        char operation;
+        Scanner scanner = new Scanner(System.in); // Create a Scanner object to read user input
 
-        boolean doCalculate = true;
+        boolean doCalculate = true; // A flag to control the loop, initially set to true
 
-        while (doCalculate) {
+        while (doCalculate) { // Start a loop that continues as long as doCalculate is true
             System.out.print("Enter first number: ");
-            double num1 = scanner.nextDouble();
+            double num1 = scanner.nextInt(); // Read the first number from the user
 
             System.out.print("Enter operator (+, -, *, /): ");
-            operation = scanner.next().charAt(0);
+            char operation = scanner.next().charAt(0); // Read the operator (+, -, *, /) from the user
 
             System.out.print("Enter second number: ");
-            double num2 = scanner.nextDouble();
+            double num2 = scanner.nextInt(); // Read the second number from the user
 
-            double result = 0;
+            double result = 0; // Variable to store the result of the calculation
 
-            switch (operation) {
+            switch (operation) { // Use a switch-case to perform the selected operation
                 case '+':
                     result = num1 + num2;
                     break;
@@ -34,25 +33,25 @@ public class cal {
                         result = num1 / num2;
                     } else {
                         System.out.println("Error: Cannot divide by zero!");
-                        continue;
+                        continue; // Restart the loop to allow user to try again
                     }
                     break;
                 default:
                     System.out.println("Invalid operator!");
-                    continue;
+                    continue; // Restart the loop to allow user to try again
             }
 
-            System.out.println("Result: " + result);
+            System.out.println("Result: " + result); // Display the calculated result
 
             System.out.print("Do you want to calculate again? (Y/N): ");
-            char choice = scanner.next().charAt(0);
+            char choice = scanner.next().charAt(0); // Ask if the user wants to calculate again
 
             if (Character.toUpperCase(choice) == 'N') {
-                doCalculate = false;
+                doCalculate = false; // If the user enters 'N', set doCalculate to false to exit the loop
             }
         }
 
-        scanner.close();
-        System.out.println("Calculator program has been terminated.");
+        scanner.close(); // Close the Scanner object to release resources
+        System.out.println("Calculator program has been terminated."); // Display a termination message
     }
 }
